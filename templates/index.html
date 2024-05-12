@@ -22,9 +22,11 @@
     <table>
         <thead>
             <tr>
-                {% for header in data[0] %}
-                    <th>{{ header }}</th>
-                {% endfor %}
+                <th>Sno</th>
+                <th>Name</th>
+                <th>IP Address</th>
+                <th>Port</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +35,13 @@
                     {% for value in row %}
                         <td>{{ value }}</td>
                     {% endfor %}
+                    <td>
+                        <form action="/connect" method="post">
+                            <input type="hidden" name="ip_address" value="{{ row[2] }}">
+                            <input type="hidden" name="port" value="{{ row[3] }}">
+                            <button type="submit">Connect</button>
+                        </form>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -52,11 +61,18 @@
 
 
 
-<!-- <!DOCTYPE html>
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
 <html>
 <head>
     <title>Enter your username</title>
 </head>
+
 <body>
     <form action="/greet" method="post">
         <label for="username">Enter your username:</label><br>
@@ -64,4 +80,58 @@
         <input type="submit" value="Submit">
     </form>
 </body>
+</html>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <body>
+    <h1>CSV Data Table</h1>
+    <table>
+        <thead>
+            <tr>
+                {% for header in data[0] %}
+                    <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data[1:] %}
+                <tr>
+                    {% for value in row %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
 </html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
