@@ -1,67 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>CSV Table</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Router Information</title>
 </head>
 <body>
-    <h1>CSV Data Table</h1>
-    <table>
-        <thead>
-            <tr>
-                {% for header in data[0] %}
-                    <th>{{ header }}</th>
-                {% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-            {% for row in data[1:] %}
-                <tr>
-                    {% for value in row %}
-                        <td>{{ value }}</td>
-                    {% endfor %}
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Enter your username</title>
-</head>
-<body>
-    <form action="/greet" method="post">
+    <h1>Router Information</h1>
+    <form action="/router_info" method="post">
         <label for="username">Enter your username:</label><br>
-        <input type="text" id="username" name="username"><br>
+        <input type="text" id="username" name="username"><br><br>
         <input type="submit" value="Submit">
     </form>
 </body>
-</html> -->
+</html>

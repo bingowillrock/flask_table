@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Router Information</title>
+</head>
+<body>
+    <h1>Router Information</h1>
+    <p>Welcome, {{ username }}!</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Router Name</th>
+                <th>IP Address</th>
+                <th>Port</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for router in router_data %}
+                <tr>
+                    <td>{{ router['Number'] }}</td>
+                    <td>{{ router['Router Name'] }}</td>
+                    <td>{{ router['IP Address'] }}</td>
+                    <td>{{ router['Port'] }}</td>
+                    <td><form action="/connect" method="post">
+                        <input type="hidden" name="username" value="{{ username }}">
+                        <input type="hidden" name="ip_address" value="{{ router['IP Address'] }}">
+                        <input type="hidden" name="port" value="{{ router['Port'] }}">
+                        <button type="submit">SSH Connect</button>
+                    </form></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
